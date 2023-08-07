@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "Update a new licenced file";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>Upload your papers to the community through <a href="https://arweave.org/" target="_blank">Arweave</a> and license it for use.</p>
+</div>
+
+
+
+<div class="row">
+    <div class="col-3">
+        Arweave wallet Key
+    </div>
+    <div class="col-7">
+        <textarea id="walletKey" class="form-control"></textarea>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+        Select a file
+    </div>
+    <div class="col-7">
+        <input type="file" id="selectedFile" class="form-control" onchange="calculateCost()" accept=".pdf,.doc,.docx" />
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+        Description
+    </div>
+    <div class="col-7">
+        <input type="text" id="description" onchange="calculateCost()" class="form-control" /> 
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+        Derivation (licence type)
+    </div>
+    <div class="col-7">
+        <select name="derivationSelect" id="derivationSelect" class="form-control">
+            <option value="Allowed-With-Credit">With Credit</option>
+            <option value="Allowed-With-Indication">With Indication</option>
+            <option value="Allowed-With-License-Passthrough">With License Passthrough</option>
+            <option value="Allowed-With-RevenueShare-">With Revenue Share</option>
+        </select>
+    </div>
+</div>
+<br />
+<div class="row" id="derivationRevenue" style="display:none">
+    <div class="col-3">
+        Derivation revenue share <br /> (in percentage)
+    </div>
+    <div class="col-7">
+        <input type="number" id="derivationRevenueShare" onchange="calculateCost()" class="form-control" min="0" max="99" /> 
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+        Expiration (in years)
+    </div>
+    <div class="col-7">
+        <input type="number" id="expirationYears" onchange="calculateCost()" class="form-control" min="0" max="25" /> 
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-7">
+        <div class="alert alert-error" style="display:none;" id="errorDescription">
+        </div>
+        <div class="alert alert-success" style="display:none;" id="successDescription">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-7">
+        Cost of this transaction: <b><span id="arweaveCost"></span></b> <br />
+        <input type="button" class="btn-primary btn" id="btnUploadFile" value="Upload file" />
+    </div>
+</div>
+<br />
+

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Licensor";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Licensor</h1>
+    <p>Licensor allows you to upload papers to the Permaweb thanks to <b>Arweave</b>, 
+        and to be able to license them using <b>UDL (Universal Data License)</b> to protect the creators of publications and research content.</p>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        Create a new Arweave wallet <br />
+        @Html.ActionLink("Go to create wallet","CreateWallet","Home",null,new {@class="btn btn-secondary"})
+    </div>
+    <div class="col-6">
+        Upload and licence paper/file  <br />
+        @Html.ActionLink("Upload","UploadFile","Home",null,new {@class="btn btn-secondary"})
+    </div>
+</div>
